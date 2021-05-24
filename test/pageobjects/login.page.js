@@ -1,5 +1,4 @@
 
-
 class LoginPage {
    
     get inputUsername () { return $('div[class="form_group"]>input[id="user-name"]') };
@@ -23,6 +22,13 @@ class LoginPage {
     }
     btnError(){
         this.errorButton.click();
+    }
+    standarUser(){
+        this.inputUsername.click();
+        this.inputUsername.setValue("standard_user");
+        this.inputPassword.click();
+        this.inputPassword.setValue("secret_sauce");
+        this.buttonLogin.click();
     }
     open () {
         return browser.url('https://www.saucedemo.com/');
