@@ -1,16 +1,28 @@
 const LoginPage = require('../pageobjects/login.page')
-
-
 class Inventory{
     
     // Top-left Menu
-    get closeMenu () { return $('#react-burger-cross-btn')}
-    get resetAppState () { return $('nav.bm-item-list > #reset_sidebar_link')};
-    get about () { return $('nav.bm-item-list > #about_sidebar_link')};
-    get allItems () { return $('nav.bm-item-list > #inventory_sidebar_link')};
-    get menuButton () { return $('div.bm-burger-button > #react-burger-menu-btn') };
-    get logoutLink () { return $('nav[class="bm-item-list"]>a[id="logout_sidebar_link"]') };
-    get cartLink () { return $('div.primary_header > #shopping_cart_container > a.shopping_cart_link')}
+    get closeMenu () {
+        return $('#react-burger-cross-btn')
+    };
+    get resetAppState () {
+        return $('nav.bm-item-list > #reset_sidebar_link')
+    };
+    get about () {
+        return $('nav.bm-item-list > #about_sidebar_link')
+    };
+    get allItems () {
+        return $('nav.bm-item-list > #inventory_sidebar_link')
+    };
+    get menuButton () {
+        return $('div.bm-burger-button > #react-burger-menu-btn')
+    };
+    get logoutLink () { 
+        return $('nav[class="bm-item-list"]>a[id="logout_sidebar_link"]')
+    };
+    get cartLink () {
+        return $('div.primary_header > #shopping_cart_container > a.shopping_cart_link')
+    ;}
     // List options
     get listSelect (){
         return $('#header_container > div.header_secondary_container > div.right_component > span > select')
@@ -54,7 +66,6 @@ class Inventory{
     get arraynames() {
         return $$('#inventory_container > div.inventory_list > div.inventory_item')
     };
-    
     //Price Tag
     get backpackPrice(){
         return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(1) > div.inventory_item_description > div.pricebar > div').getText()
@@ -74,79 +85,48 @@ class Inventory{
     get redTshirtPrice(){
         return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(6) > div.inventory_item_description > div.pricebar > div').getText()
     }
-    //Buttons Add to cart
-    get backpackAddButton(){
-        return $('#add-to-cart-sauce-labs-backpack')
-    }
-    get redLightAddButton(){
-        return $('#add-to-cart-sauce-labs-bike-light')
-    }
-    get blackTshirtAddButton(){
-        return $('#add-to-cart-sauce-labs-bolt-t-shirt')
-    }
-    get grayHoodieAddButton(){
-        return $('#add-to-cart-sauce-labs-fleece-jacket')
-    }
-    get redLightningAddButton(){
-        return $('#add-to-cart-sauce-labs-onesie')
-    }
-    get redTshirtAddButton(){
-        return $('button[id="add-to-cart-test.allthethings()-t-shirt-(red)"]')
-    }
-    //Buttons Remove
-    get backpackRemoveButton(){
-        return $('#remove-to-cart-sauce-labs-backpack')
-    }
-    get redLightRemoveButton(){
-        return $('#remove-to-cart-sauce-labs-bike-light')
-    }
-    get blackTshirtRemoveButton(){
-        return $('#remove-to-cart-sauce-labs-bolt-t-shirt')
-    }
-    get grayHoodieRemoveButton(){
-        return $('#remove-to-cart-sauce-labs-fleece-jacket')
-    }
-    get redLightningRemoveButton(){
-        return $('#remove-to-cart-sauce-labs-onesie')
-    }
     //Button of Cart
     get cartButton (){
         return $('#shopping_cart_container > a')
-    }
+    };
     //Number of the cart, total items
     get NumberCartItems (){
         return $('#shopping_cart_container > a > span').getText()
-    }
+    };
     get cartNumberEmpty (){
-        return $('#shopping_cart_container > a ');
-    }
-    //butons add items
-    get addItems () { return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button')}
-    // button remove items 
-    get removeItems() { return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button[class="btn btn_secondary btn_small btn_inventory"]')}
+        return $('#shopping_cart_container > a ')
+    };
+    //Butons add items
+    get addItems () {
+        return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button')
+    };
+    //Button remove items 
+    get removeItems() {
+        return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button[class="btn btn_secondary btn_small btn_inventory"]')
+    };
     //Functions
     selectAtoZ(){
         this.listSelect.click();
         this.nameAtoZ.click();
-    }
+    };
     selectZtoA(){
         this.listSelect.click();
         this.nameZtoA.click();
-    }
+    };
     selectPriceLowToHigh(){
         this.listSelect.click();
         this.priceLowToHigh.click();
-    }
+    };
     selectPriceHighToLow(){
         this.listSelect.click();
         this.priceHighToLow.click();
-    }
+    };
     selectChildItem(i){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child('+i+') > div.inventory_item_description > div.inventory_item_label > a > div.inventory_item_name').getText();
-    }
+        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child('+i+') > div.inventory_item_description > div.inventory_item_label > a > div.inventory_item_name').getText()
+    };
     selectChildPrice(i){
-        return $ ('#inventory_container > div.inventory_list > div.inventory_item:nth-child('+i+') > div.inventory_item_description > div.pricebar > div').getText();
-    }
+        return $ ('#inventory_container > div.inventory_list > div.inventory_item:nth-child('+i+') > div.inventory_item_description > div.pricebar > div').getText()
+    };
     addItemsToTheCart(){
         this.addItems.forEach(element => {
             element.click();

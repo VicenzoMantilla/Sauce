@@ -37,7 +37,7 @@ class Checkout {
     };
     get arrayOfPrices () {
         return $$('div.cart_list > div.cart_item > div.cart_item_label > div.item_pricebar > div.inventory_item_price')
-    }
+    };
     // Functions
     setName(name){
         this.firstName.click();
