@@ -40,6 +40,27 @@ class LoginPage {
         this.inputPassword.setValue("secret_sauce");
         this.buttonLogin.click();
     };
+    lockedOutUser(){
+        this.inputUsername.click();
+        this.inputUsername.setValue("locked_out_user");
+        this.inputPassword.click();
+        this.inputPassword.setValue("secret_sauce");
+        this.buttonLogin.click();
+    };
+    problemUser(){
+        this.inputUsername.click();
+        this.inputUsername.setValue("problem_user");
+        this.inputPassword.click();
+        this.inputPassword.setValue("secret_sauce");
+        this.buttonLogin.click();
+    };
+    performanceUser(){
+        this.inputUsername.click();
+        this.inputUsername.setValue("performance_glitch_user");
+        this.inputPassword.click();
+        this.inputPassword.setValue("secret_sauce");
+        this.buttonLogin.click();
+    };
     open () {
         return browser.url('https://www.saucedemo.com/');
     };

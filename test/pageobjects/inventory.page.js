@@ -1,6 +1,5 @@
 const LoginPage = require('../pageobjects/login.page')
 class Inventory{
-    
     // Top-left Menu
     get closeMenu () {
         return $('#react-burger-cross-btn')
@@ -39,9 +38,13 @@ class Inventory{
     get priceHighToLow (){ 
         return $('#header_container > div.header_secondary_container > div.right_component > span > select > option:nth-child(4)')
     };
-    // Product Description
+    //Product Description
     get backpackDescriptionPage(){
         return $('#item_4_title_link')
+    }
+    //Images
+    get dogImg (){
+        return $('div.inventory_list > div.inventory_item > div.inventory_item_img > a > img').getAttribute('src')
     }
     //Products names
     get backpackTitle(){

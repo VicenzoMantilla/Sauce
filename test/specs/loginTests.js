@@ -2,7 +2,7 @@ const LoginPage = require('../pageobjects/login.page');
 const Inventory = require('../pageobjects/inventory.page');
 
 describe('Saucedemo',()=>{
-    beforeAll('Open saucedemo',()=>{
+    beforeEach('Open saucedemo',()=>{
         LoginPage.open();
     });
     describe('Test wrong users',()=>{
@@ -59,10 +59,9 @@ describe('Saucedemo',()=>{
             LoginPage.btnError();
         });
         it('Locked user entry with the right credentials',()=>{
-            LoginPage.login("locked_out_user");
-            LoginPage.password("secret_sauce");
-            LoginPage.loginButton();
-            expect(LoginPage.textErrorMessage).toHaveText("Epic sadface: Sorry, this user has been locked out.");
+            LoginPage.lockedOutUser();
+            expect(LoginPage.textErrorMessage).toHaveText(
+            "Epic sadface: Sorry, this user has been locked out.");
         });
     });
     describe('Test for performance_glitch_user',()=>{
@@ -74,9 +73,7 @@ describe('Saucedemo',()=>{
             "Epic sadface: Username and password do not match any user in this service");
         });
         it('Correct password for performance user',()=>{
-            LoginPage.login("performance_glitch_user");
-            LoginPage.password("secret_sauce");
-            LoginPage.loginButton();
+            LoginPage.performanceUser();
             expect(browser).toHaveUrl("https://www.saucedemo.com/inventory.html")
             Inventory.logout();
         });
@@ -90,23 +87,21 @@ describe('Saucedemo',()=>{
             "Epic sadface: Username and password do not match any user in this service");
         });
         it('Change of inventory page when problem user login',()=>{
-            LoginPage.login("problem_user");
-            LoginPage.password("secret_sauce");
-            LoginPage.loginButton();
-            expect(Inventory.dogImg).toBeVisible();
+            LoginPage.problemUser();
+            expect(Inventory.dogImg).toEqual("https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg");
             Inventory.logout();
         })
     })
     describe('Standard username, a valid account',()=>{
         it('Set the correct user',()=>{
-            LoginPage.login("standard_user");
-            LoginPage.password("secret_sauce");
-            LoginPage.loginButton();
+            LoginPage.standarUser();
             expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             browser.pause(2000);
         });
         it('Logout of inventory for another test',()=>{
-            Inventory.logout();
+            LoginPage.standarUser();
+            Inventory.menuButton.click();
+            Inventory.logoutLink.click();
             expect(browser).toHaveUrl('https://www.saucedemo.com/');
             browser.pause(3000);
         })
