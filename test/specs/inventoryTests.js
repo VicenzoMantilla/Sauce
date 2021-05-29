@@ -85,3 +85,38 @@ describe('Inventory tests',()=>{
         })
     });
 });
+
+describe('Tests for Problem user',()=>{
+    beforeEach('Open saucedemo and login',()=>{
+        LoginPage.open();
+        LoginPage.problemUser();
+    });
+    describe('Test the Inventory part for Problem user',()=>{
+        it('The page cannot order the products Z to A',()=>{
+            Inventory.selectZtoA();
+            expect(Inventory.selectChildItem(1)).not.toEqual("Test.allTheThings() T-Shirt (Red)");
+        });
+        it('The page cannot order the products from low to high price',()=>{
+            Inventory.selectPriceLowToHigh();
+            expect(Inventory.selectChildPrice(1)).not.toEqual("$7.99");
+        });
+        it('The page cannot order the products from high to low price',()=>{
+            Inventory.selectPriceHighToLow();
+            expect(Inventory.selectChildPrice(1)).not.toEqual("$49.99");
+        });
+        it('The page allow to add only 3 items to the cart',()=>{
+            Inventory.addItemsToTheCart();
+            expect(Inventory.NumberCartItems).toEqual("3");
+        });
+        it('The page do not allow to remove the items added to the cart',()=>{
+            Inventory.addItemsToTheCart();
+            Inventory.removeItemsOfTheCart();
+            expect(Inventory.NumberCartItems).toEqual("3");
+        });
+        it('The link about in the menu give a 404 not found error',()=>{
+            Inventory.menuButton.click();
+            Inventory.about.click();
+            expect(browser).toHaveUrl("https://saucelabs.com/error/404");
+        });
+    });
+});    

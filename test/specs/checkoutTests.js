@@ -96,3 +96,22 @@ describe('Test for checkout part 2 page',()=>{
         });
     });
 });
+
+describe('Test for problem user',()=>{
+    beforeEach('Open for checkout',()=>{
+        LoginPage.open();
+        LoginPage.problemUser();
+        Inventory.addItemsToTheCart();
+        Inventory.cartButton.click();
+        Cart.checkoutBtn.click();
+    });
+    describe('Checkout and finish the purchase for problem user ',()=>{
+        it('The page do not allow to fill the lastname input to continue',()=>{
+            Checkout.setName("Vicenzo");
+            Checkout.setLastName("Mantilla");
+            Checkout.setPostalCode("2000");
+            Checkout.continueBtn.click();
+            expect(Checkout.textError).toEqual("Error: Last Name is required");
+        });
+    });
+});
