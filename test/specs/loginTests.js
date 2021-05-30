@@ -74,9 +74,21 @@ describe('Saucedemo',()=>{
         });
         it('Correct password for performance user',()=>{
             LoginPage.performanceUser();
-            expect(browser).toHaveUrl("https://www.saucedemo.com/inventory.html")
+            expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
             Inventory.logout();
         });
+        it('Checks the performance required to log in', () => {
+            LoginPage.performanceUser();
+            browser.setTimeout({'pageLoad': 10000});
+            expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+            });
+        it('Access to the cart page to check its performance', () => {
+            LoginPage.performanceUser();
+            Inventory.cartButton.click();
+            browser.setTimeout({'pageLoad': 10000});
+            expect(browser).toHaveUrl('https://www.saucedemo.com/cart.html');  
+        });
+        
     });
     describe('Test for problem user',()=>{
         it('Wrong password for problem user',()=>{

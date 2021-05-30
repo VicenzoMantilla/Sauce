@@ -107,6 +107,9 @@ class Inventory{
     get removeItems() {
         return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button[class="btn btn_secondary btn_small btn_inventory"]')
     };
+    //prices array
+    get productPrice () { return $$('div.inventory_item_price')}
+    get definitivo () { return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > div')}
     //Functions
     selectAtoZ(){
         this.listSelect.click();
@@ -143,6 +146,6 @@ class Inventory{
     logout(){
         this.menuButton.click();
         this.logoutLink.click();
-    };  
+    };
 };
 module.exports = new Inventory();

@@ -38,6 +38,15 @@ class Checkout {
     get arrayOfPrices () {
         return $$('div.cart_list > div.cart_item > div.cart_item_label > div.item_pricebar > div.inventory_item_price')
     };
+    get headerForCheckout () {
+        return $('h2.complete-header').getText()
+    };
+    get textCheckout () {
+        return $('div.complete-text').getText()
+    };
+    get titleCheckout (){
+        return $('div.header_secondary_container').getText()
+    }
     // Functions
     setName(name){
         this.firstName.click();
