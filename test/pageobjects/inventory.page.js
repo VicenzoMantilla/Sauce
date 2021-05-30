@@ -46,48 +46,10 @@ class Inventory{
     get dogImg (){
         return $('div.inventory_list > div.inventory_item > div.inventory_item_img > a > img').getAttribute('src')
     }
-    //Products names
-    get backpackTitle(){
-        return $('#item_4_title_link > div').getText()
-    }
-    get redLightTitle(){
-        return $('#item_0_title_link > div').getText()
-    }
-    get blackTshirtTitle(){
-        return $('#item_1_title_link > div').getText()
-    }
-    get grayHoodieTitle(){
-        return $('#item_5_title_link > div').getText()
-    }
-    get redLightningTitle(){
-        return $('#item_2_title_link > div').getText()
-    }
-    get redTshirtTitle(){
-        return $('#item_3_title_link > div').getText()
-    }
     //Array Item Names
     get arraynames() {
         return $$('#inventory_container > div.inventory_list > div.inventory_item')
     };
-    //Price Tag
-    get backpackPrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(1) > div.inventory_item_description > div.pricebar > div').getText()
-    }
-    get redLightPrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(2) > div.inventory_item_description > div.pricebar > div').getText()
-    }
-    get blackTshirtPrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(3) > div.inventory_item_description > div.pricebar > div').getText()
-    }
-    get grayHoodiePrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(4) > div.inventory_item_description > div.pricebar > div').getText()
-    }
-    get redLightningPrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(5) > div.inventory_item_description > div.pricebar > div').getText()
-    }
-    get redTshirtPrice(){
-        return $('#inventory_container > div.inventory_list > div.inventory_item:nth-child(6) > div.inventory_item_description > div.pricebar > div').getText()
-    }
     //Button of Cart
     get cartButton (){
         return $('#shopping_cart_container > a')
@@ -107,9 +69,6 @@ class Inventory{
     get removeItems() {
         return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > button[class="btn btn_secondary btn_small btn_inventory"]')
     };
-    //prices array
-    get productPrice () { return $$('div.inventory_item_price')}
-    get definitivo () { return $$('#inventory_container > div.inventory_list > div.inventory_item > div.inventory_item_description > div.pricebar > div')}
     //Functions
     selectAtoZ(){
         this.listSelect.click();

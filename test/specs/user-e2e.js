@@ -4,7 +4,7 @@ const Cart = require('../pageobjects/cart.page');
 const Checkout = require('../pageobjects/checkout.page')
 
 describe('Testing for the purchase cycle',()=>{
-    beforeAll('Open saucedemo and make the purchase',()=>{
+    beforeAll('Open saucedemo and make the purchase and logout',()=>{
         LoginPage.open();
         LoginPage.standarUser();
         Inventory.addItemsToTheCart();

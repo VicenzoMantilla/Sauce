@@ -9,6 +9,15 @@ class socialMedia{
   get linkedinBtn() {
     return $('li.social_linkedin >a')
   }
+  get footerTitle() {
+    return $('div.footer_copy') 
+  }
+  get imgFooter() {
+    return $('img.footer_robot')
+  }
+  get productsTitle() { 
+    return $('span.title')
+  }
 
   twitterClick() {
     this.twitterBtn.click()
