@@ -31,7 +31,7 @@ describe('Test for the social media logos', () => {
     it('Test if the linkedin logo redirects to the expected page',  () => {
       socialMedia.linkedinClick();
       browser.switchWindow('linkedin.com')
-      expect(browser).toHaveUrlContaining('https://www.linkedin.com/authwall?trk');
+      expect(browser).toHaveUrlContaining('https://www.linkedin.com/company/sauce-labs/');
     });
   });
 });
