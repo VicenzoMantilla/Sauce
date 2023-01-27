@@ -1,4 +1,4 @@
-# WEEK 15 - SAUCEDEMO
+# SAUCEDEMO
 
 **Version 1.0.0**
 
@@ -72,4 +72,4 @@ the option to return to the inventory page once the purchase is completed.
 
 ## License & Copyright
 
-© Vicenzo Mantilla, Radium Rocket Course.
+© Vicenzo Mantilla.
